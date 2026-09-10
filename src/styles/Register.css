@@ -1,0 +1,233 @@
+.register-page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 500px);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: center;
+    max-width: 1120px;
+    min-height: calc(100vh - 190px);
+    margin: 0 auto;
+    padding: 3rem clamp(1.25rem, 5vw, 4rem) 5rem;
+    color: #19313d;
+}
+
+.register-intro {
+    max-width: 520px;
+    animation: register-rise 500ms ease both;
+}
+
+.register-kicker {
+    margin: 0 0 1rem;
+    color: #c8563d;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.register-intro h1 {
+    max-width: 480px;
+    margin: 0;
+    color: #19313d;
+    font-size: clamp(2.8rem, 6vw, 5.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+}
+
+.register-copy {
+    max-width: 410px;
+    margin: 1.5rem 0 0;
+    color: #58707a;
+    font-size: 1.1rem;
+    line-height: 1.65;
+}
+
+.register-note {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    max-width: 360px;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(35, 75, 93, 0.2);
+    color: #45606b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.register-note span {
+    color: #e9775b;
+    font-weight: 800;
+}
+
+.register-note p {
+    margin: 0;
+}
+
+.register-panel {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.68);
+    box-shadow: 0 24px 60px rgba(29, 45, 58, 0.13), inset 0 1px rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(18px);
+    animation: register-rise 500ms 100ms ease both;
+}
+
+.register-panel__header h2 {
+    margin: 0;
+    color: #19313d;
+    font-size: 1.8rem;
+}
+
+.register-panel__header>p:last-child {
+    margin: 0.5rem 0 0;
+    color: #6a7f87;
+}
+
+.register-form {
+    display: grid;
+    gap: 0.55rem;
+    margin-top: 2rem;
+}
+
+.register-form label {
+    color: #294655;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.register-form input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0.8rem;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid rgba(35, 75, 93, 0.2);
+    border-radius: 0.65rem;
+    outline: none;
+    color: #19313d;
+    background: rgba(255, 255, 255, 0.72);
+    font: inherit;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.register-form input:focus {
+    border-color: #e9775b;
+    box-shadow: 0 0 0 3px rgba(233, 119, 91, 0.15);
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 4.5rem;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    padding: 0.25rem;
+    border: 0;
+    color: #c8563d;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid #e9775b;
+    outline-offset: 2px;
+}
+
+.register-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.register-form__row>div {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.register-error {
+    margin: 0.2rem 0 0.5rem;
+    color: #a83f2b;
+    font-size: 0.85rem;
+}
+
+.register-submit {
+    margin-top: 0.35rem;
+    padding: 0.9rem 1rem;
+    border: 0;
+    border-radius: 0.65rem;
+    color: #fff;
+    background: #234b5d;
+    box-shadow: 0 8px 18px rgba(35, 75, 93, 0.2);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.register-submit:hover:not(:disabled) {
+    background: #173948;
+    transform: translateY(-1px);
+}
+
+.register-submit:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.register-footer {
+    margin: 1.5rem 0 0;
+    color: #6a7f87;
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.register-footer a {
+    color: #c8563d;
+    font-weight: 700;
+}
+
+@keyframes register-rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 760px) {
+    .register-page {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        min-height: auto;
+        padding-top: 2rem;
+    }
+
+    .register-intro h1 {
+        font-size: clamp(2.8rem, 15vw, 4.5rem);
+    }
+
+    .register-note {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-form__row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
