@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../compounds/ProductCard'
 
+
 const Home = () => {
   const [Product, setProduct] = useState([])
   const [Loading, setLoading] = useState(true)
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch('/api/products')
+        const res = await fetch(import.meta.env.VITE_BACKEND_URL + '/api/products')
         const data = await res.json()
         console.log(data)
         setProduct(data)

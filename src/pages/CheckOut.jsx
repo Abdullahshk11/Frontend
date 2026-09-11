@@ -38,7 +38,7 @@ const CheckOut = () => {
     setError('')
     setIsSubmitting(true)
     try {
-      const response = await fetch('/api/orders', {
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/api/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${user.token}` },
         body: JSON.stringify({ items: cartItems.map((item) => ({ productId: item._id || item.productId, quantity: item.quantity || item.qty || 1 })), totalAmount: subtotal, address: form }),

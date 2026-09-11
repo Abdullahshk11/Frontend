@@ -15,7 +15,7 @@ const AdminProducts = () => {
     const [error, setError] = useState('')
 
     const loadProducts = async () => {
-        const response = await fetch('/api/products')
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/api/products')
         if (!response.ok) throw new Error('Unable to load products.')
         setProducts(await response.json())
     }
@@ -42,7 +42,7 @@ const AdminProducts = () => {
         const body = new FormData()
         Object.entries(form).forEach(([key, value]) => value !== '' && value !== null && body.append(key, value))
         try {
-            const response = await fetch('/api/products', { method: 'POST', headers: { Authorization: `Bearer ${user.token}` }, body })
+            const response = await fetch(import.meta.env.VITE_BACKEND_URL + '/api/products', { method: 'POST', headers: { Authorization: `Bearer ${user.token}` }, body })
             const data = await response.json()
             if (!response.ok) throw new Error(data.message || 'Unable to create product.')
             setForm(emptyForm)
@@ -55,7 +55,7 @@ const AdminProducts = () => {
 
     const deleteProduct = async (id) => {
         if (!window.confirm('Delete this product?')) return
-        const response = await fetch(`/api/products/${id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${user.token}` } })
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL + `/api/products/${id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${user.token}` } })
         if (response.ok) setProducts((current) => current.filter((product) => product._id !== id))
         else setError('Unable to delete product.')
     }

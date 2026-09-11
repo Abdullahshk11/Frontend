@@ -16,7 +16,7 @@ const AdminOrders = () => {
             navigate('/', { replace: true })
             return
         }
-        fetch('/api/orders', { headers: { Authorization: `Bearer ${user.token}` } })
+        fetch(import.meta.env.VITE_BACKEND_URL + '/api/orders', { headers: { Authorization: `Bearer ${user.token}` } })
             .then(async (response) => {
                 const data = await response.json()
                 if (!response.ok) throw new Error(data.message || 'Unable to load orders.')
@@ -31,7 +31,7 @@ const AdminOrders = () => {
         setError('')
         setUpdatingOrder(orderId)
         try {
-            const response = await fetch(`/api/orders/${orderId}/status`, {
+            const response = await fetch(import.meta.env.VITE_BACKEND_URL + `/api/orders/${orderId}/status`, {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${user.token}`,

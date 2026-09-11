@@ -19,7 +19,7 @@ const Productdetails = () => {
             setError('')
 
             try {
-                const response = await fetch(`/api/products/${id}`)
+                const response = await fetch(import.meta.env.VITE_BACKEND_URL + `/api/products/${id}`)
                 const data = await response.json()
 
                 if (!response.ok) {

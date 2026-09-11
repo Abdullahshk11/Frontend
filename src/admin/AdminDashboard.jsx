@@ -13,7 +13,7 @@ const AdminDashboard = () => {
             navigate('/')
             return
         }
-        fetch('/api/analytic', { headers: { Authorization: `Bearer ${user.token}` } })
+        fetch(import.meta.env.VITE_BACKEND_URL + '/api/analytic', { headers: { Authorization: `Bearer ${user.token}` } })
             .then(async (response) => {
                 if (response.ok) setStats(await response.json())
             })
